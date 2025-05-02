@@ -10,14 +10,12 @@ This is a simple chatbot application built using the Hugging Face Transformers l
 ## How It Works
 The chatbot processes user input, tokenizes it, and generates a response using the BlenderBot model. The conversation flow is as follows:
 
-![Chatbot Flow](images/chatbot-diagram.png)
+![Chatbot Flow](static/chatbot-diagram.png)
 
 1. **User Input**: The user provides input to the chatbot.
 2. **Transformer**: The input is tokenized into numerical representations.
 3. **Large Language Model**: The model processes the tokens and generates a response.
 4. **Transformer**: The response is converted back into human-readable text.
-5. **Output**: The chatbot displays the response to the user.
-
 ## Installation
 
 1. Clone the repository:
@@ -34,21 +32,28 @@ The chatbot processes user input, tokenizes it, and generates a response using t
 
 3. Install dependencies:
    ```bash
-   pip install -r transformers torch
+   pip install -r requirements.txt
    ```
 
 ## Usage
 
-Run the chatbot application:
-```bash
-python3 chatbot.py
-```
+### Web Interface
+1. Start the Flask server:
+   ```bash
+   flask run
+   ```
+2. Open your browser and navigate to `http://127.0.0.1:5000` to interact with the chatbot.
 
-Start interacting with the chatbot by typing your messages. The chatbot will respond based on the conversation history.
+### Command Line Interface Alternative
+1. Run the chatbot script:
+   ```bash
+   python3 chatbot.py
+   ```
+2. Start typing your messages, and the chatbot will respond based on the conversation history.
 
 ## Customization
 
-To use a different model, update the `model_name` variable in `chatbot.py` with the desired Hugging Face model. Ensure the model is compatible with `AutoModelForSeq2SeqLM`.
+To use a different model, update the `model_name` variable in `app.py` or `chatbot.py` with the desired Hugging Face model. Ensure the model is compatible with `AutoModelForSeq2SeqLM`.
 
 Example:
 ```python
@@ -57,8 +62,11 @@ model_name = "google/flan-t5-base"
 
 ## Requirements
 - Python 3.10 or higher
+- Flask
+- Flask-CORS
 - Hugging Face Transformers
 - PyTorch
+
 
 ## License
 This project is licensed under the MIT License.
